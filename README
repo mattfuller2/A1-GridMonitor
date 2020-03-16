@@ -1,0 +1,102 @@
+****************
+* GridMonitor
+* CS 221-003
+* 9/6/17
+* Matt Fuller
+**************** 
+
+OVERVIEW:
+
+ Celebrated engineer, M. Scott, has invented a revolutionary new solar array, which is
+ theoretically capable of fully powering a Constitution-class starship operating within
+ eight light-minutes of a G-type main-sequence star. The problem is that mysterious 
+ interactions between adjacent cells in prototypes have caused... well... some catastrophic 
+ explosions in (former) labs that would certainly result in hull breach if fitted onto 
+ a ship. GridMonitor builds a system to monitor array levels for these dangerous imbalances.
+
+
+INCLUDED FILES:
+
+ GridMonitor.java - source file
+ GridMonitorInterface.java - source file
+ GridMonitorTest.java - source file
+ negatives.txt - source file
+ oneByOne.txt - source file
+ sample.txt - source file
+ sample4x5.txt - source file
+ sampleDoubles.txt - source file
+ wideRange.txt - source file
+ README - this file
+
+
+BUILDING AND RUNNING:
+
+ From the directory containing all source files, compile the test
+ class (and all dependent classes) with the command:
+ $ javac GridMonitorTest.java
+
+ Run the compiled SetTester class with the command:
+ $ java GridMonitorTest
+
+ Console output will report which tests GridMonitor passed or failed.
+ 
+
+PROGRAM DESIGN:
+
+ GridMonitor implements the GridMonitorInterface interface. It is believed that 
+ any cell with a value that differs from the average of its neighboring cells by 
+ more than 50% is at risk of exploding. GridMonitor opens and reads the specified 
+ plain-text file containing current grid levels using one or more Scanners. The 
+ Scanner class will throw a FileNotFoundException if the given file name is not 
+ valid or the file cannot be read.
+
+ GridMonitorTest confirms correct operation of all GridMonitorInterface methods 
+ for change scenarios. It is configured to use the GridMonitor implementation of
+ GridMonitorInterface.
+ 
+
+TESTING:
+
+ GridMonitorTest was the primary mechanism for testing GridMonitor. GridMonitorTest was
+ written before GridMonitor, so test-driven development helped ensure that
+ all GridMonitor functionality was being tested from the start.
+
+ Scenarios being tested by SetTester include:
+   loadSampleTest
+   getBaseGridSampleTest
+   getSurroundingSumGridSampleTest
+   getSurroundingAvgGridSampleTest
+   getDeltaGridSampleTest
+   getDangerGridSampleTest
+   lameToStringTest
+   load4x5Test
+   getBaseGrid4x5Test
+   getSurroundingSumGrid4x5Test
+   getSurroundingAvgGrid4x5Test
+   getDeltaGrid4x5Test
+   getDangerGrid4x5Test
+   lameToString4x5Test
+   loadDoublesTest
+   getBaseGridDoublesTest
+   getSurroundingSumGridDoublesTest
+   loadNegativesTest
+   getBaseGridNegativesTest
+   getSurroundingSumGridNegativesTest
+   getSurroundingAvgGridNegativesTest
+   getDeltaGridNegativesTest
+   getDangerGridNegativesTest
+   load1x1Test
+   getSurroundingSumGrid1x1Test
+   loadWideRangeTest
+   getBaseGridWideRangeTest
+   getBaseGridEncapsulationTest
+   getSurroundingSumGridEncapsulationTest
+   getSurroundingAvgGridEncapsulationTest
+   getDangerGridEncapsulationTest
+   noSuchFileTest
+ 
+DISCUSSION:
+ 
+ I ran into problems trying to print out the toString methods from the GridMonitorTest. 
+ It came back as an error because the returned value started with the method's name.
+ 
